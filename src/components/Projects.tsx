@@ -27,6 +27,7 @@ const projects = [
         tags: ["Next.js 16", "React 19", "Tailwind CSS", "MongoDB", "NextAuth"],
         link: "https://github.com/akilaymaan/DevTrack",
         featured: true,
+        image: "/devtrack.png",
     },
 ];
 
