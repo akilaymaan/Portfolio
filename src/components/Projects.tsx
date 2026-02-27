@@ -13,6 +13,7 @@ const projects = [
         tags: ["React", "Node.js", "Python", "Machine Learning"],
         link: "https://github.com/akilaymaan/HemoLink",
         featured: true,
+        image: "/hemolink.png",
     },
     {
         title: "DevTrack – Job Aggregator Dashboard",
@@ -38,15 +39,22 @@ export default function Projects() {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className={`group flex flex-col bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800 transition-all hover:border-neutral-600 hover:-translate-y-1 ${project.featured ? "md:col-span-2 lg:col-span-3" : ""}`}
+                            className={`group flex flex-col bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800 transition-all hover:border-neutral-600 hover:-translate-y-1 ${project.featured ? "md:col-span-2 lg:col-span-3 lg:flex-row" : ""}`}
                         >
-                            {!project.featured && (
-                                <div className="aspect-video bg-neutral-800 w-full relative flex items-center justify-center overflow-hidden">
-                                    <span className="text-neutral-600 font-medium">Image Placeholder</span>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60"></div>
+                            {/* Image Section */}
+                            {(project.image || !project.featured) && (
+                                <div className={`${project.featured ? "lg:w-1/2" : "w-full"} relative flex items-center justify-center overflow-hidden bg-neutral-800 ${project.featured ? "aspect-video lg:aspect-auto" : "aspect-video"}`}>
+                                    {project.image ? (
+                                        <img src={project.image} alt={project.title} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                                    ) : (
+                                        <span className="text-neutral-600 font-medium">Image Placeholder</span>
+                                    )}
+                                    <div className={`absolute inset-0 bg-gradient-to-t from-neutral-900 ${project.featured ? "lg:bg-gradient-to-r lg:from-transparent lg:to-neutral-900" : ""} via-transparent to-transparent opacity-90 lg:opacity-100`}></div>
                                 </div>
                             )}
-                            <div className="p-6 md:p-8 flex flex-col flex-grow">
+
+                            {/* Content Section */}
+                            <div className={`p-6 md:p-8 flex flex-col flex-grow ${project.featured ? "lg:w-1/2 lg:justify-center" : ""}`}>
                                 <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                                 <p className="text-neutral-300 mb-6 text-lg font-light leading-relaxed">{project.description}</p>
 
