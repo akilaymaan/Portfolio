@@ -17,7 +17,7 @@ export default function AboutAndContact() {
                             Interested in working together or just want to say hi? I&apos;m currently open to new opportunities.
                         </p>
                         <a
-                            href="mailto:hello@example.com"
+                            href="mailto:akilaymaan@gmail.com"
                             className="flex w-full items-center justify-center px-6 py-4 text-base font-medium rounded-xl bg-white text-black transition-transform hover:scale-[1.02] hover:bg-neutral-200"
                         >
                             Send an Email
